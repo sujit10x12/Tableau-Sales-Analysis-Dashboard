@@ -1,7 +1,14 @@
 ![Sales Dashboard](https://github.com/user-attachments/assets/1acd366d-f132-4821-ac6f-b41e98211f8b)
 ![Performance by Location](https://github.com/user-attachments/assets/e837d5ab-c9ff-46da-8453-d2fa4f409154)
 
+---
 
+## 🌐 Live Dashboard
+
+  👉 [Sales Dashboard](https://public.tableau.com/app/profile/sujit.singh5086/viz/shared/QBRCQYZDZ)  
+  👉 [Performance by Location Dashboard](https://public.tableau.com/app/profile/sujit.singh5086/viz/TableauFundamentals_17483200559180/PerformancebyLocation)
+
+---
 
 ## ❓ Key Business Questions & KPIs
 
@@ -106,13 +113,6 @@ ProductID	Segment	Category	SubCategory	ProductName
   - `ProductID` → `dimProduct.ProductID`
   - `PostalCodeID` → `dimLocation.PostalCodeID`
   - `ShipModeID` → `dimShipping.ShipModeID`
-
----
-
-## 🌐 Live Dashboard
-
-  👉 [Sales Dashboard](https://public.tableau.com/app/profile/sujit.singh5086/viz/shared/QBRCQYZDZ)  
-  👉 [Performance by Location Dashboard](https://public.tableau.com/app/profile/sujit.singh5086/viz/TableauFundamentals_17483200559180/PerformancebyLocation)
 
 ---
 
