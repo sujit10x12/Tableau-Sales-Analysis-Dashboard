@@ -32,7 +32,7 @@ This project includes two major components:
 
 ---
 
-## 📁 <a href="/Datasets/SalesData.xlsx">SalesData</a> Workbook
+## 📁 <a href="/Datasets/SalesData.xlsx">SalesData Workbook</a>
 
 ### Sheets
 - **FactOrders** – Sales 2014-2017  
