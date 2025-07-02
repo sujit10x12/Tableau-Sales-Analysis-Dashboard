@@ -24,6 +24,91 @@ This dashboard answers the following key performance questions:
 
 ---
 
+## 🗂️ Dataset Overview
+
+This project includes two major components:
+1. **SalesData workbook** with fact tables for order transactions  
+2. **Dimension Tables workbook** with four lookup tables
+
+---
+
+## 📁 <a href="/Datasets/SalesData.xlsx">SalesData</a> Workbook
+
+### Sheets
+- **FactOrders** – Sales 2014-2017  
+- **FactOrders18-19** –  Sales 2018–2019  
+
+### Columns (both sheets)
+
+| Column Name    | Data Type       | Description                                              |
+|----------------|------------------|---------------------------------------------------------|
+| `RowID`         | INT              | Unique row identifier                                  |
+| `OrderID`       | VARCHAR/STRING   | Customer-facing order reference                        |
+| `OrderDate`     | DATE             | Date the order was placed (YYYY-MM-DD)                 |
+| `ShipDate`      | DATE             | Date the order was shipped (YYYY-MM-DD)                |
+| `CustomerID`    | INT              | FK → `dimCustomer.CustomerID`                          |
+| `ProductID`     | INT              | FK → `dimProduct.ProductID`                            |
+| `PostalCodeID`  | INT              | FK → `dimLocation.PostalCodeID`                        |
+| `ShipModeID`    | INT              | FK → `dimShipping.ShipModeID`                          |
+| `Sales`         | DECIMAL(10,2)    | Sales revenue                                          |
+| `Quantity`      | INT              | Number of units sold                                   |
+| `Discount`      | DECIMAL(5,2)     | Discount as percentage (e.g., `0.20` = 20%)            |
+| `Profit`        | DECIMAL(10,2)    | Profit amount                                          |
+
+☑️ **Note:** Use **FactOrders** for current analytics; **FactOrders18-19** is for legacy trends.
+
+---
+
+## 🧩 <a href="/Datasets/Dimension%20Tables.xlsx">Dimension Tables Workbook</a>
+
+### dimCustomer
+
+| Column Name     | Data Type     | Description                                               |
+|-----------------|----------------|----------------------------------------------------------|
+| `CustomerID`     | INT (PK)       | Matches `FactOrders.CustomerID`                         |
+| `CustomerName`      | VARCHAR        | Customer’s first name                                |
+
+
+### dimLocation
+
+| Column Name     | Data Type     | Description                                               |
+|-----------------|----------------|----------------------------------------------------------|
+| `Country`        | VARCHAR        | Country name                                            |
+| `State`          | VARCHAR        | State/Province                                          |
+| `Postal Ref`     | VARCHAR        | ZIP or postal code                                      |
+| `Region`         | VARCHAR        | Region (e.g., West, East, Central)                      |
+| `PostalCodeID`   | INT (PK)       | Matches `FactOrders.PostalCodeID`                       |
+
+### dimProduct
+ProductID	Segment	Category	SubCategory	ProductName
+
+| Column Name      | Data Type     | Description                                              |
+|------------------|---------------|----------------------------------------------------------|
+| `ProductID`       | INT (PK)       | Matches `FactOrders.ProductID`                         |
+| `Segment`         | VARCHAR        | Segment                                                |
+| `Category`        | VARCHAR        | High-level category                                    |
+| `SubCategory`     | VARCHAR        | More detailed category                                 |
+| `ProductName`     | VARCHAR        | Full name/title of the product                         |
+
+### dimShipping
+
+| Column Name     | Data Type     | Description                                               |
+|-----------------|----------------|----------------------------------------------------------|
+| `ShipMode`       | VARCHAR        | Shipping method (e.g., Standard, First Class)           |
+| `ShipModeID`     | INT (PK)       | Matches `FactOrders.ShipModeID`                         |
+
+---
+
+## 🔗 Relationships
+
+- **FactOrders** and **FactOrders18-19** connect to dimensions via foreign keys:
+  - `CustomerID` → `dimCustomer.CustomerID`
+  - `ProductID` → `dimProduct.ProductID`
+  - `PostalCodeID` → `dimLocation.PostalCodeID`
+  - `ShipModeID` → `dimShipping.ShipModeID`
+
+---
+
 ## 🌐 Live Dashboard
 
   👉 [Sales Dashboard](https://public.tableau.com/app/profile/sujit.singh5086/viz/shared/QBRCQYZDZ)  
